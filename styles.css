@@ -351,6 +351,7 @@ nav {
 .home-intro .content h2 {
   font-weight: 400;
   width: 20ch;
+  color: #FFFFFF;
 }
 
 .home-intro .download-options {
@@ -794,18 +795,32 @@ textarea {
     padding: 2.5em;
   }
 
+  
   .footer-main {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: top;
     justify-content: space-around;
-    gap: 3rem;
+    gap: 1rem;
   }
 
   .footer-main p {
     line-height: 2.2;
   }
 
+}
+
+@media screen and (max-width: 688px){
+  .footer-main  {
+    margin-top: 42vh;
+    text-align: center;
+    align-items: center;
+  }
+
+  .footer-bottom{
+    text-align: center;
+    margin-top: 5vh;
+  }
 }
 
 /* Media query for devices with width more than 1000px */
