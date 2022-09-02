@@ -841,6 +841,7 @@ textarea {
   .home-intro .content h2 {
     font-size: var(--fs-200);
     width: fit-content;
+    color: #ffffff;
   }
 
   .home-intro .download-options {
