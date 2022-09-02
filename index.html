@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dipam Sarkar</title>
+
+  <!-- Favicon link -->
+  <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lobster&family=Suez+One&family=Ubuntu:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS links -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <!-- Logo of the website -->
+      <div class="logo">
+        <a href="index.html">
+          <h1>Portfolio</h1>
+        </a>
+      </div>
+      <!-- Navigation bar -->
+      <nav>
+        <!-- Hamburger menu only visible on devices with smaller width -->
+        <div class="hamburger">
+          <div class="hamburger-container">
+            <span class="hamburger-icon"></span>
+          </div>
+        </div>
+
+        <!-- Using same piece of code for small and large devices which I don't like at all but will change later -->
+        <ul class="navbar-large">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#contact-scroll">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+
+    <!-- Navigation bar for small screens -->
+    <ul class="navbar-small">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact-scroll">Contact</a></li>
+    </ul>
+
+  </header>
+
+  <!-- Main section of the website -->
+  <main>
+
+    <!-- The first section we see on home page -->
+    <section class="home-intro" id="home">
+      <div class="container">
+        <div class="content">
+          <h1>I'm Dipam Sarkar</h1>
+          <h2>Game Designer || Game Developer || Coder</h2>
+          <div class="download-options">
+            <a href="#"><button class="btn">Resume</button></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Tripo section on home page -->
+    <section class="home-about" id="about">
+      <div class="cards-container">
+        <div class="cards-subcontainer">
+          <div class="games-card">
+            <img src="assets/img/games/game1.png" alt="game 1"> <!-- Change game name here -->
+            <div class="game-name">
+              <h3>Kipon</h3>
+              <p>Casual - Free</p>
+            </div>
+          </div>
+          <div class="games-card">
+            <img src="assets/img/games/game2.png" alt="game 2"> <!-- Change game name here -->
+            <div class="game-name">
+              <h3>Robotrix</h3>
+              <p>RPG - Free</p>
+            </div>
+          </div>
+          <div class="games-card">
+            <img src="assets/img/games/game3.png" alt="game 3"> <!-- Change game name here -->
+            <div class="game-name">
+              <h3>Treasure Box</h3>
+              <p>Adventure - Free</p>
+            </div>
+          </div>
+          <div class="more-games-card">
+            <a href="#games"><h3>More Games</h3></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Short about section -->
+      <div class="about-tripo">
+        <div class="container">
+          <h2>About Tripo</h2>
+          <h1>Who am I ?</h1>
+            <p>I am a B.tech undergrad in Computer Science from University of Engineering and Management, Kolkata who is interested in Game Design, Game Development, and Coding.</p>
+          <a href="#"><button class="btn">Learn More</button></a>
+          <div class="about-img">
+            <div class="img-container"><img src="assets/img/characters/portfolio.png" alt="Employees working on a 3D model">
+            </div>
+            <div class="char-img-container"><img src="assets/img/characters/home-about.png" alt="3D character"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our games section on home page -->
+    <section class="our-games" id="achievements">
+      <div class="container">
+        <h1>My Achievements</h1>
+          <p>Here are some of my achievements</p>
+        </p>
+        <div class="subcontainer">
+          <div class="img-container"><img src="assets/img/characters/our-games.png" alt="3D character"></div>
+          <div class="games-description">
+            <div class="description-card slide-up">
+              <div class="game-name-container">
+                <span class="game-profile-img"><img src="assets/img/games/profile-game1.jpg" alt="Kipon image"></span>
+                <div class="game-name">
+                  <h3>Kipon</h3>
+                  <p>Casual - Free</p>
+                </div>
+              </div>
+                <p>Kipon is a casual game that provides an experience similar to the classic game Mario. It is not the exact copy of Mario but many concepts are similar to it. People who like old classical games will sure like this one.</p>
+              <div class="download-options">
+                <a href="#"><button class="btn">Certificate</button></a>
+              </div>
+            </div>
+            <div class="description-card slide-up">
+              <div class="game-name-container">
+                <span class="game-profile-img"><img src="assets/img/games/profile-game2.jpg"
+                    alt="Robotrix image"></span>
+                <div class="game-name">
+                  <h3>Robotrix</h3>
+                  <p>RPG - Free</p>
+                </div>
+              </div>
+                <p>Robotrix is an RPG (Role Playing Game). It is based on modern robotics technology. You will see action, adventure, story, and of course high-tech weapons and equipment. The storyline of this game is based on the future.</p>
+              <div class="download-options">
+                <a href="#"><button class="btn">Certificate</button></a>
+              </div>
+            </div>
+            <div class="description-card slide-up">
+              <div class="game-name-container">
+                <span class="game-profile-img"><img src="assets/img/games/profile-game3.png"
+                    alt="Treasure Box image"></span>
+                <div class="game-name">
+                  <h3>Treasure Box</h3>
+                  <p>Adventure - Free</p>
+                </div>
+              </div>
+                <p>Treasure Box is an adventure game based on ancient time treasure stories. The goal of this game is to find treasure by visiting different places and finding clues. You can also compete with your friends by playing online multiplayer mode.</p>
+              <div class="download-options">
+                <a href="#"><button class="btn">Certificate</button></a>
+              </div>
+            </div>
+            <div class="img-container slide-up"><img src="assets/img/characters/our-games-character.png"
+                alt="3D character">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Join Our Team Section -->
+    <section class="join-team" id="careers">
+      <div class="container">
+        <h2>Let's Connect</h2>
+        <!-- <h1>It takes the world's best talent to change the game.</h1>
+        <a href="#"><button class="btn">Explore Careers</button></a> -->
+        <img src="assets/img/characters/join-team.png" alt="3D Character" class="slide-up">
+      </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section class="contact" id="contact">
+      <div class="container" id="contact-scroll">
+        <div class="get-in-touch-form">
+          <!-- <h1>Get in Touch</h1>
+          <p>Fill in your details and we will send you an email to the address provided</p> -->
+          <form action="#">
+            <div class="f-l-name">
+              <div class="f-name">
+                <label for="fname">First Name <span style="color: red;">*</span></label>
+                <input type="text" name="fname" id="fname">
+              </div>
+              <div class="l-name">
+                <label for="lname">Last Name <span style="color: red;">*</span></label>
+                <input type="text" name="lname" id="lname">
+              </div>
+            </div>
+            <div class="email">
+              <label for="email">Email <span style="color: red;">*</span></label>
+              <input type="email" name="email" id="email">
+            </div>
+            <div class="message">
+              <label for="message">Leave me a message...</label>
+              <textarea name="message" id="message" cols="30" rows="10"></textarea>
+            </div>
+            <button class="btn">Submit</button>
+          </form>
+        </div>
+        <!-- <div class="newsletter-form slide-up">
+          <h2>Subscribe to Our Newsletter</h2>
+          <form action="#">
+            <label for="newsletter">Email <span style="color: #F7FF00;">*</span></label>
+            <div class="subcontainer">
+              <input type="email" name="newsletter" id="newsletter">
+              <button class="btn">Join</button>
+            </div>
+          </form>
+        </div> -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Section -->
+  <footer>
+
+    <div class="container">
+      <section class="footer-top">
+        <!-- <div class="logo">
+          <h1>Tripo Games</h1>
+        </div> -->
+        <!-- <h2>An Immersive Gaming Experience</h2> -->
+      </section>
+
+      <section class="footer-main">
+        <div class="contact-info">
+          <h3>Contact</h3>
+          <div class="content">
+            <p><a href="mailto:info@tripo.com">mail id</a></p>
+            <p>Phone: <a href="tel:1234567890">123-456-7890</a></p>
+            <p>500 Terry Francois St</p>
+          </div>
+        </div>
+        <!-- <div class="navigation">
+          <h3>Navigation</h3>
+          <p><a href="#">Games</a></p>
+          <p><a href="#">Careers</a></p>
+          <p><a href="#">About</a></p>
+          <p><a href="#">Contact</a></p>
+          <p><a href="#">Privacy Policy</a></p>
+          <p><a href="#">Terms & Conditions</a></p>
+        </div> -->
+        <div class="social">
+          <h3>Social</h3>
+          <p><a href="#">Discord</a></p>
+          <p><a href="#">Twitch</a></p>
+          <p><a href="#">Facebook</a></p>
+        </div>
+
+        <div class="social">
+          <h3>Social</h3>
+          <p><a href="#">YouTube</a></p>
+          <p><a href="#">Twitter</a></p>
+          <p><a href="#">LinkedIn</a></p>
+        </div>
+        <!-- <div class="find-us">
+          <h3>Find Us On</h3>
+          <div class="download-options">
+            <a href="#"><img src="assets/img/download-btns/Google-Play.webp" alt="Download from Google Play"></a>
+            <a href="#"><img src="assets/img/download-btns/Apple-Store.webp" alt="Download from App Store"></a>
+          </div>
+        </div> -->
+      </section>
+
+      <section class="footer-bottom">
+        <p>&copy; by Roy.</p>
+      </section>
+    </div>
+
+  </footer>
+
+  <!-- Main JavaScript file -->
+  <script src="main.js"></script>
+</body>
+
+</html>

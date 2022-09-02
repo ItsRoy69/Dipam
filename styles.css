@@ -1,0 +1,989 @@
+
+/* Declaring some CSS variables */
+:root {
+  --clr-bg: #F6F4F0;
+  --clr-bg-dark: #020001;
+  --clr-bg-card: #FFA882;
+  --clr-theme: #ff002f;
+  --clr-txt-dark: #34314F;
+  --clr-black: #000;
+  --clr-white: #FFF;
+  --clr-light-gray-text: #8e8e8e;
+
+  --linear-gradient-game-card: linear-gradient(180deg, rgba(0, 0, 0, 0.582) 0%, #FE0000 100%);
+
+  --efx-card-shadow: 4px 4px 10px 0 rgba(202, 55, 81, 0.2);
+  --efx-game-img-shadow: 2px 2px 5px 0 rgba(202, 55, 81, 0.2);
+  --efx-navbar-shadow: 0 0 10px 0 rgba(202, 55, 81, 0.25);
+  
+  --ff-primary: 'Ubuntu', sans-serif;
+  --ff-logo: 'Lobster', cursive;
+  --ff-heading: 'Suez One', serif;
+
+  --fs-100: 1.1rem;
+  --fs-200: 1.5rem;
+  --fs-300: 2.2rem;
+  --fs-400: 3rem;
+  --fs-500: 4rem;
+
+  --fw-regular: 400; /* Regular */
+  --fw-sub-heading: 600; /* Bold */
+  --fw-heading: 900; /* Black | Super Bold (Highest) */
+
+  --header-height: 3.4rem;
+}
+
+::selection {
+  color: var(--clr-white);
+  background-color: var(--clr-theme);
+}
+
+header ::selection,
+.join-team ::selection,
+.newsletter-form ::selection,
+.logo ::selection {
+  color: var(--clr-theme);
+  background-color: var(--clr-white);
+}
+
+/* CSS Reset by my own. Not using any advanced level of CSS reset available on web */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: inherit;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height, 3.4rem);
+}
+
+body {
+  font-family: var(--ff-primary);
+  line-height: 1.5;
+  background-color: #000000;
+  
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1 {
+  font-family: var(--ff-heading);
+  font-size: var(--fs-300);
+  font-weight: 900;
+  color: #fbff00;
+}
+
+h2 {
+  font-family: inherit;
+  font-size: var(--fs-200);
+  font-weight: var(--fw-sub-heading);
+  color: var(--clr-txt-dark);
+}
+
+h3 {
+  font-family: inherit;
+  font-size: 1.3rem;
+  font-weight: var(--fw-sub-heading);
+}
+
+p {
+  color: var(--clr-black);
+  font-size: 1rem;
+}
+
+img {
+  max-width: 100%;
+}
+/* CSS reset ends */
+
+/* Utility Classes */
+.btn,
+.btn:focus,
+.btn:hover {
+  outline: none;
+}
+
+.btn {
+  border: 2px solid transparent;
+  border-radius: 5px;
+  padding: 1rem 2.2rem;
+  background-color: #FE0000;
+  color: var(--clr-white);
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease-out,
+    color 0.3s ease-out,
+    border 0.3s ease-out;
+}
+
+.btn:hover {
+  border: 2px solid var(--clr-bg-card);
+  background-color: var(--clr-white);
+  color: var(--clr-black)
+}
+
+.download-options img {
+  max-width: 7rem;
+}
+
+.container {
+  width: 88%;
+  margin: auto;
+}
+
+.download-options {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.download-options img {
+  max-width: 8rem;
+}
+
+.download-options a:nth-child(1) {
+  margin-right: 0.4em;
+}
+
+.slide-up {
+  transform: translateY(40%);
+  opacity: 0;
+  transition:
+    transform 400ms ease-out,
+    opacity 350ms ease-out;
+}
+
+.appear {
+  transform: translateY(0);
+  opacity: 1;
+}
+/* Utility classes ends */
+
+/* Header Styles */
+header .container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 12;
+  height: var(--header-height);
+}
+
+nav {
+  height: 100%;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--clr-theme);
+  box-shadow: var(--efx-navbar-shadow);
+  height: 100%;
+  padding: 0 1em;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.logo h1 {
+  color: var(--clr-white);
+  font-size: var(--fs-200);
+  font-family: var(--ff-logo);
+}
+
+.hamburger {
+  --transition-time: 200ms;
+  --transition-delay: 300ms;
+
+  display: flex;
+  align-items: center;
+  background: var(--clr-white);
+  font-size: var(--fs-200);
+  box-shadow: var(--efx-navbar-shadow);
+  height: 100%;
+  padding: 0 1em;
+  position: relative;
+  z-index: 14;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  cursor: pointer;
+}
+
+.hamburger-container {
+  position: relative;
+}
+
+/* -> Hamburger icon styles for the animation */
+.hamburger-icon,
+.hamburger-icon::before,
+.hamburger-icon::after {
+  display: block;
+  width: 1.2em;
+  height: 4px;
+  background-color: var(--clr-black);
+  border-radius: 5px;
+  transition: all var(--transition-time) ease-in-out;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+}
+
+.hamburger-icon::before { bottom: 8px; }
+.hamburger-icon::after { top: 8px; }
+
+.clicked .hamburger-icon {
+  transform: rotate(45deg);
+  transition-delay: var(--transition-delay);
+}
+
+.clicked .hamburger-icon::before {
+  bottom: 0;
+  opacity: 0;
+  transition-delay: var(--transition-delay), 0s;
+  transition-property: opacity, bottom;
+}
+
+.clicked .hamburger-icon::after {
+  top: 0;
+  transform: rotate(90deg);
+  transition-delay: var(--transition-delay), 0s;
+  transition-property: transform, top;
+}
+/* -> Hamburger icon styles ends */
+
+.navbar-large {
+  display: none;
+  list-style: none;
+  align-items: center;
+  justify-content: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--efx-navbar-shadow);
+  height: 100%;
+}
+
+.navbar-large li {
+  height: 100%;
+  font-size: var(--fs-100);
+}
+
+.navbar-large li a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 1.8rem;
+  background-color: var(--clr-white);
+  color: var(--clr-black);
+  transition:
+  background-color 0.3s ease-out,
+  color 0.3s ease-out;
+}
+
+.navbar-large li a.active,
+.navbar-large li a:hover {
+  background-color: var(--clr-theme);
+  color: var(--clr-white);
+}
+
+.navbar-small {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  list-style: none;
+  background: var(--clr-white);
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 4rem 2rem;
+  z-index: 11;
+}
+
+.navbar-small.visible {
+  display: flex;
+}
+
+.navbar-small li {
+  padding: 1rem 1.2rem;
+  font-size: var(--fs-200);
+}
+
+.navbar-small a.active {
+  color: var(--clr-theme);
+}
+/* Header styles ends */
+
+/* home-intro section styles */
+.home-intro {
+  padding: 6rem 0;
+  background: url('assets/img/characters/home-intro.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: var(--clr-bg-dark);
+  background-attachment: fixed;
+}
+
+.home-intro .content h1 {
+  font-size: var(--fs-400);
+  width: 10ch;
+}
+
+.home-intro .content h2 {
+  font-weight: 400;
+  width: 20ch;
+}
+
+.home-intro .download-options {
+  margin-top: 1rem;
+}
+/* home-intro section styles ends */
+
+/* Home about section styles */
+
+.home-about {
+  background-color: #000000;
+}
+
+.cards-container {
+  margin: 8% auto;
+  width: 88%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.cards-subcontainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.games-card img {
+  width: 400px;
+  height: 500px;
+  display: block;
+  object-fit: cover;
+}
+
+.games-card:hover,
+.more-games-card:hover {
+  transform: scale(1.02);
+}
+
+.games-card .game-name {
+  position: absolute;
+  color: var(--clr-white);
+  left: 2.5rem;
+  bottom: 2.5rem;
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+}
+
+.game-name p {
+  color: var(--clr-white);
+  font-size: 0.9rem;
+}
+
+.games-card,
+.more-games-card {
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+  max-width: 400px;
+  height: 500px;
+  cursor: default;
+  transition: transform 0.3s ease-out;
+}
+
+.more-games-card {
+  background-color: #860d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.more-games-card h3 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity 0.3s ease-out,
+    transform 0.3s ease-out;
+}
+
+.more-games-card:hover h3 {
+  transform: scale(1.1);
+}
+
+.games-card:hover .game-name {
+  opacity: 0;
+}
+
+.games-card::before,
+.more-games-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+  background: var(--linear-gradient-game-card);
+  transition: all 0.3s ease-out;
+}
+
+.games-card:hover::before,
+.more-games-card:hover::before {
+  opacity: 0;
+}
+
+.about-tripo {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.about-tripo h1 {
+  line-height: 1.1;
+  max-width: 25ch;
+}
+
+.about-tripo .btn {
+  background-color: var(--clr-theme);
+  color: var(--clr-white);
+  border: 2px solid transparent;
+}
+
+.about-tripo .btn:hover {
+  background-color: var(--clr-white);
+  color: var(--clr-black);
+  border: 2px solid var(--clr-theme);
+}
+
+.about-tripo .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.about-img {
+  width: fit-content;
+  position: relative;
+}
+
+.about-img .img-container {
+  max-width: 300px;
+  margin: auto;
+  position: relative;
+}
+
+.about-img .img-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--linear-gradient-game-card);
+  border-radius: 100%;
+  opacity: 0;
+  transition: opacity 250ms ease-in-out;
+}
+
+.about-img .img-container:hover::before {
+  opacity: 1;
+}
+
+.about-img img:nth-child(1) {
+  border-radius: 15px;
+}
+
+.about-img .char-img-container {
+  max-width: 100px;
+  position: absolute;
+  left: -1.2rem;
+  bottom: -3.5rem;
+}
+
+.about-img .char-img-container img {
+  max-width: 100%;
+}
+/* Home about section styles ends */
+
+/* Our games section */
+.our-games {
+  text-align: center;  
+}
+
+.our-games P {
+  color: #FFFFFF;
+}
+
+.our-games .container > * {
+  margin: 0.5em 0;
+}
+
+.our-games .img-container {
+  max-width: 400px;
+  margin: auto;
+}
+
+.games-description .img-container img {
+  max-width: 250px;
+}
+
+.games-description {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 1.4rem;
+  text-align: left;
+}
+
+.games-description p {
+  color: var(--clr-black);
+}
+
+.description-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  border-radius: 15px;
+  padding: 2rem;
+  overflow: hidden;
+  background: var(--clr-white);
+  box-shadow: var(--efx-card-shadow);
+  gap: 1.5em;
+}
+
+.game-name-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.game-profile-img {
+  width: 100px;
+  height: 100px;
+  margin-right: 1em;
+  border: 8px solid var(--clr-white);
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: var(--efx-game-img-shadow);
+}
+/* Our games section styles ends */
+
+/* join-team section styles */
+.join-team {
+  background-color: var(--clr-theme);
+  padding: 2.5em 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.join-team h1,
+.join-team h2 {
+  color: var(--clr-white);
+  max-width: 16ch;
+}
+
+.join-team .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1.2em;
+  z-index: 5;
+}
+
+.join-team img {
+  max-width: 30%;
+  position: absolute;
+  right: 1.2em;
+  bottom: -2em;
+  z-index: 4;
+}
+/* join-team section styles ends */
+
+/* Contact Us section styles */
+.contact {
+  background: url('assets/img/contact-form-bg.webp');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.3);
+  background-blend-mode: multiply;
+  padding: 1em 0;
+  height: 500px;
+}
+
+.contact .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.get-in-touch-form,
+.newsletter-form {
+  width: 100%;
+  padding: 1.4em;
+  border-radius: 15px;
+  background-color: var(--clr-white);
+}
+
+.get-in-touch-form h1 {
+  font-size: 1.8rem;
+  font-family: var(--ff-primary);
+  color: var(--clr-black);
+}
+
+.get-in-touch-form p {
+  margin-top: 0.1rem;
+  margin-bottom: 1.2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+form .subcontainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: -0.8em;
+}
+
+input,
+textarea {
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--clr-black);
+  outline: none;
+  width: 100%;
+  margin-top: 0.8em;
+}
+
+textarea {
+  resize: none;
+}
+
+.f-l-name {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.newsletter-form {
+  background-color: var(--clr-theme);
+  color: var(--clr-white);
+}
+
+.newsletter-form h2 {
+  color: var(--clr-white);
+}
+
+.newsletter-form input {
+  margin-top: 0;
+  border-color: var(--clr-white);
+}
+
+.newsletter-form form {
+  margin-top: 0.8em;
+}
+/* Contact Us section styles ends */
+
+/* Footer styles */
+
+
+.footer-top {
+  text-align: center;
+}
+
+.footer-top h2 {
+  margin: 0;
+  font-weight: var(--fw-regular);
+  font-size: 1.2rem;
+
+}
+
+.footer-main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.footer-main h3 {
+  margin-bottom: 0.8em;
+}
+
+.footer-main p,
+.footer-bottom p {
+  color: var(--clr-light-gray-text);
+}
+
+.footer-main p {
+  line-height: 2;
+}
+
+/* Footer styles ends */
+
+/* Media query for devices with width more than 600px */
+
+@media only screen and (min-width: 600px) {
+
+  .home-intro {
+    padding: 7rem 0;
+  }
+
+  .cards-container {
+    margin: 5% auto;
+  }
+
+  .join-team img {
+    max-width: 200px;
+  }
+
+  .about-tripo .container {
+    gap: 2.2rem;
+  }
+
+  .about-img .char-img-container {
+    max-width: 150px;
+    left: -1.6rem;
+    bottom: -5rem;
+  }
+
+  .get-in-touch-form,
+  .newsletter-form {
+    padding: 2.5em;
+  }
+
+  .footer-main {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: top;
+    justify-content: space-around;
+    gap: 3rem;
+  }
+
+  .footer-main p {
+    line-height: 2.2;
+  }
+
+}
+
+/* Media query for devices with width more than 1000px */
+
+@media only screen and (min-width: 1000px) {
+
+  :root {
+    --fs-300: 3rem;
+
+    --header-height: 4rem;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .navbar-large {
+    display: flex;
+  }
+
+  .home-intro {
+    padding-top: 10rem;
+    padding-bottom: 18rem;
+    background-size: contain;
+    background-position: center right;
+  }
+
+  .home-intro .content h1 {
+    font-size: var(--fs-500);
+    width: fit-content
+  }
+  
+  .home-intro .content h2 {
+    font-size: var(--fs-200);
+    width: fit-content;
+  }
+
+  .home-intro .download-options {
+    margin-top: 2rem;
+  }
+
+  .about-img .char-img-container {
+    max-width: 175px;
+    left: -3rem;
+    bottom: -6rem;
+  }
+
+  .cards-container {
+    flex-wrap: nowrap;
+    margin: 0 auto;
+  }
+  
+  .cards-subcontainer {
+    flex-wrap: nowrap;
+    position: relative;
+    top: -5rem;
+    left: 0;
+    max-width: 100%;
+    gap: 2rem;
+  }
+
+  .games-card img,
+  .games-card,
+  .more-games-card {
+    width: 300px;
+    height: 400px;
+  }
+
+  .about-tripo h1 {
+    width: 25ch;
+  }
+
+  .about-tripo p {
+    width: 75ch;
+    color: #ffffff;
+  }
+
+  .our-games {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    background-color: #000000;
+  }
+
+  .our-games p {
+    width: 75ch;
+    margin: auto;
+  }
+
+  .our-games .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .our-games .subcontainer {
+    position: relative;
+    width: 100%;
+  }
+
+  .our-games .img-container {
+    max-width: 800px;
+  }
+
+  .games-description {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    align-content: space-between;
+  }
+
+  .description-card {
+    width: 400px;
+  }
+
+  .description-card:nth-child(2),
+  .description-card:nth-child(4) {
+    justify-self: flex-end;
+  }
+
+  .description-card p {
+    width: 100%;
+    margin: 0;
+  }
+
+  .join-team {
+    padding-bottom: 20em;
+  }
+
+  .join-team img {
+    max-width: 350px;
+    bottom: -2.8em;
+    right: 8%;
+  }
+
+  .contact {
+    padding: 0;
+  }
+
+  .contact .container {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    position: relative;
+    top: -15rem;
+  }
+
+  .get-in-touch-form,
+  .newsletter-form {
+    max-width: 450px;
+  }
+
+  form .subcontainer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .f-l-name {
+    flex-direction: row;
+  }
+
+  .footer-main {
+    flex-wrap: nowrap;
+  }
+
+  .footer-main p {
+    line-height: 2.4;
+  }
+
+  .footer-bottom {
+    text-align: center;
+  }
+  
+}
